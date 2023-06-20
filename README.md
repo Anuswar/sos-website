@@ -25,7 +25,7 @@ This web application provides a platform for users to find nearby amenities such
 To run the SOS web application locally, follow these steps:
 
 1. Clone the repository or download the source code.
-2. Open the `index.html` file in a web browser.
+2. Open the `sos.html` file in a web browser.
 3. The application will be loaded, and you can interact with the map and the tabs to view nearby amenities.
 
 ## Contributions
