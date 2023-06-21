@@ -43,6 +43,58 @@
         font-family: "Ubuntu", sans-serif;
       }
 
+      /*=============== SCROLL BAR ===============*/
+
+      /* Add vendor prefixes */
+      ::-webkit-scrollbar {
+        --webkit-appearance: none;
+      }
+      ::-webkit-scrollbar:vertical {
+        width: 11px;
+      }
+      ::-webkit-scrollbar:horizontal {
+        height: 11px;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 2px solid white;
+        background-color: blue;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      ::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 8px;
+      }
+      /* Use relative units */
+      ::-webkit-scrollbar {
+        width: 1rem;
+        height: 1rem;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-width: 0.2rem;
+        border-radius: 1rem;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+      }
+      /* Use media queries */
+      @media (max-width: 768px) {
+        /* Define different styles for mobile devices */
+        ::-webkit-scrollbar {
+          width: 0.5rem;
+          height: 0.5rem;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-width: 0.1rem;
+          border-radius: 0.5rem;
+        }
+        ::-webkit-scrollbar-track {
+          border-radius: 0.5rem;
+        }
+      }
+
       .container {
         width: 100%;
         height: 100%;
@@ -145,11 +197,6 @@
       }
       .tabb ul.menu li a.active .tabbar-icon2 {
         display: block;
-      }
-
-      .leaflet-touch .leaflet-control-layers,
-      .leaflet-touch .leaflet-bar {
-        display: none;
       }
 
       .leaflet-container .leaflet-control-attribution {
@@ -381,7 +428,7 @@
       }).addTo(map);
 
       // Fetch user's location and display it on the map
-      map.locate({ setView: true, maxZoom: 16 });
+      map.locate({ setView: true, maxZoom: 18 }); // Adjusted the maxZoom value
 
       function onLocationFound(e) {
         var marker = L.marker(e.latlng).addTo(map);
@@ -425,28 +472,44 @@
               }
 
               elements.forEach(function (element) {
-                var name = element.tags.name || "N/A";
+                var name =
+                  element.tags.name ||
+                  element.tags["name:en"] ||
+                  element.tags["name:fr"] ||
+                  element.tags.operator ||
+                  "N/A";
                 var latLng = L.latLng(element.lat, element.lon);
                 var distance =
-                  e.latlng.distanceTo(latLng).toFixed(2) + " meters";
-                var address = element.tags["addr:full"] || "N/A";
+                  (e.latlng.distanceTo(latLng) / 1000).toFixed(2) +
+                  " kilometers";
+                var address =
+                  element.tags["addr:full"] ||
+                  element.tags["addr:housename"] ||
+                  element.tags["addr:housenumber"] ||
+                  element.tags["addr:street"] ||
+                  element.tags["addr:postcode"] ||
+                  element.tags["addr:city"] ||
+                  element.tags["addr:country"] ||
+                  "Address not available";
                 var contact =
                   element.tags.phone ||
                   element.tags["contact:phone"] ||
                   element.tags.phone_1 ||
                   element.tags["phone:emergency"] ||
-                  "N/A";
+                  element.tags.email ||
+                  element.tags.website ||
+                  "Contact information not available";
 
                 var listItem = document.createElement("li");
                 listItem.classList.add(amenity.className);
                 listItem.innerHTML =
-                  "<strong>" +
+                  "<strong>Name:</strong> " +
                   name +
-                  "</strong><br>Address: " +
+                  "<br><strong>Address:</strong> " +
                   address +
-                  "<br>Contact: " +
+                  "<br><strong>Contact:</strong> " +
                   contact +
-                  "<br>Distance: " +
+                  "<br><strong>Distance:</strong> " +
                   distance;
                 list.appendChild(listItem);
               });
