@@ -43,7 +43,7 @@
 
     <div class="container">
       <!--=============== HEADER ===============-->
-      <header class="header" id="header">
+      <header class="header sett" id="header">
         <nav class="nav container-liquid">
           <!-- Logo -->
           <a href="#" class="nav__logo" onClick="window.location.reload()"
@@ -248,7 +248,7 @@
         </div>
       </div>
 
-      <div style="display: none; background: wheat" id="info"></div>
+      <div style="display: none" id="info"></div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -366,6 +366,24 @@
       }
 
       map.on("locationfound", onLocationFound);
+    </script>
+
+    <script>
+      let shareData = {
+        title: "MDN",
+        text: "Learn web development on MDN!",
+        url: "https://developer.mozilla.org",
+      };
+
+      const btn = document.querySelector(".share");
+      const resultPara = document.querySelector(".result");
+
+      btn.addEventListener("click", () => {
+        navigator
+          .share(shareData)
+          .then(() => (resultPara.textContent = "MDN shared successfully"))
+          .catch((e) => (resultPara.textContent = "Error: " + e));
+      });
     </script>
 
     <script src="script.js"></script>
