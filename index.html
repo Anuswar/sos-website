@@ -263,6 +263,7 @@
 
     <script>
       /*=============== MAP ===============*/
+      /*=============== MAP ===============*/
       // Initialize Leaflet map
       var map = L.map("map");
 
@@ -363,29 +364,34 @@
 
           request.send();
         });
+
+        // Enable sharing with Web Share API
+        var shareButton = document.querySelector(".share");
+        if (navigator.share) {
+          shareButton.style.display = "block";
+
+          shareButton.addEventListener("click", function () {
+            navigator
+              .share({
+                title: "MDN",
+                text: "Learn web development on MDN!",
+                url:
+                  "https://developer.mozilla.org?lat=" +
+                  e.latlng.lat.toFixed(6) +
+                  "&lng=" +
+                  e.latlng.lng.toFixed(6),
+              })
+              .then(function () {
+                console.log("MDN shared successfully");
+              })
+              .catch(function (error) {
+                console.error("Error sharing:", error);
+              });
+          });
+        }
       }
 
       map.on("locationfound", onLocationFound);
-
-      let shareData = {
-        title: "MDN",
-        text: "Learn web development on MDN!",
-        url:
-          "https://developer.mozilla.org?lat=" +
-          map.getCenter().lat.toFixed(6) +
-          "&lng=" +
-          map.getCenter().lng.toFixed(6),
-      };
-
-      const btn = document.querySelector(".share");
-      const resultPara = document.querySelector(".result");
-
-      btn.addEventListener("click", () => {
-        navigator
-          .share(shareData)
-          .then(() => (resultPara.textContent = "MDN shared successfully"))
-          .catch((e) => (resultPara.textContent = "Error: " + e));
-      });
     </script>
 
     <script src="script.js"></script>
