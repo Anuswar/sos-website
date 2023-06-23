@@ -742,3 +742,72 @@ h3 {
     margin-bottom: 10px;
   }
 }
+
+/*=============== INFO ===============*/
+
+#info .report {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--color-card);
+  padding: 30px;
+  border: 2px solid #000000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#info .section {
+  margin-bottom: 30px;
+}
+
+#info .section-title {
+  font-weight: bold;
+  font-size: var(--fluid-font2);
+  margin-bottom: 10px;
+}
+
+#info .section-content {
+  margin-left: 20px;
+}
+
+#info .section-content p {
+  font-size: var(--fluid-font4);
+  margin: 5px 0;
+}
+
+#info .section-content p strong {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+#info .editable {
+  display: none;
+}
+
+#info .input-field {
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  font-size: var(--fluid-font4);
+}
+
+@media only screen and (max-width: 600px) {
+  #info .report {
+    padding: 20px;
+    border: none;
+    background-color: var(--color-background);
+    box-shadow: none;
+  }
+
+  #info .section {
+    padding: 10px;
+    background-color: var(--color-card);
+    border-radius: 10px;
+  }
+
+  #info .section-title {
+    text-align: left;
+  }
+
+  #info .section-content {
+    text-align: left;
+  }
+}

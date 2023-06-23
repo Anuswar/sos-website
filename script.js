@@ -160,11 +160,30 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-$(document).ready(function() {
-  $("#searchInput").on("keyup", function() {
+$(document).ready(function () {
+  $("#searchInput").on("keyup", function () {
     var value = $(this).val().toLowerCase();
-    $(".card").filter(function() {
+    $(".card").filter(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
   });
 });
+
+/*=============== input ===============*/
+function makeEditable(element) {
+  const text = element.innerText;
+  element.style.display = "none";
+
+  const inputField = document.createElement("input");
+  inputField.setAttribute("type", "text");
+  inputField.setAttribute("class", "input-field");
+  inputField.value = text;
+  inputField.addEventListener("blur", function () {
+    element.innerText = this.value;
+    this.parentNode.removeChild(this);
+    element.style.display = "block";
+  });
+
+  element.parentNode.insertBefore(inputField, element.nextSibling);
+  inputField.focus();
+}

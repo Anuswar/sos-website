@@ -147,6 +147,8 @@
       </div>
 
       <div style="display: none" id="aid">
+        <div id="first-aid-info"></div>
+
         <div class="search-container">
           <input
             type="text"
@@ -235,20 +237,101 @@
             />
             <h3>Managing Eye Injuries</h3>
           </div>
-
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
 
-      <div style="display: none" id="info"></div>
+      <div style="display: none" id="info">
+        <div class="report">
+          <div class="section">
+            <div class="section-title">Patient Details</div>
+            <div class="section-content">
+              <div>
+                <strong>Name:</strong>
+                <p onclick="makeEditable(this)">John Doe</p>
+              </div>
+              <div>
+                <strong>Age:</strong>
+                <p onclick="makeEditable(this)">30</p>
+              </div>
+              <div>
+                <strong>Gender:</strong>
+                <p onclick="makeEditable(this)">Male</p>
+              </div>
+              <div>
+                <strong>Blood Type:</strong>
+                <p onclick="makeEditable(this)">A+</p>
+              </div>
+              <div>
+                <strong>Date of Admission:</strong>
+                <p onclick="makeEditable(this)">June 23, 2023</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Emergency Contact</div>
+            <div class="section-content">
+              <div>
+                <strong>Name:</strong>
+                <p onclick="makeEditable(this)">Jane Doe</p>
+              </div>
+              <div>
+                <strong>Relationship:</strong>
+                <p onclick="makeEditable(this)">Spouse</p>
+              </div>
+              <div>
+                <strong>Contact Number:</strong>
+                <p onclick="makeEditable(this)">+1 123-456-7890</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Medical History</div>
+            <div class="section-content">
+              <div>
+                <strong>Allergies:</strong>
+                <p onclick="makeEditable(this)">Penicillin</p>
+              </div>
+              <div>
+                <strong>Chronic Conditions:</strong>
+                <p onclick="makeEditable(this)">Asthma</p>
+              </div>
+              <div>
+                <strong>Medications:</strong>
+                <p onclick="makeEditable(this)">Ventolin (Inhaler)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Additional Notes</div>
+            <div class="section-content">
+              <p onclick="makeEditable(this)">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                in est nec nisl feugiat commodo nec ac turpis. Sed id efficitur
+                lorem. Fusce facilisis lorem eget posuere lacinia. Nullam vel
+                lectus nisi. Integer ullamcorper sapien a interdum bibendum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
