@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -38,7 +39,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: var(--fluid-font4);
   background-color: var(--color-background);
   color: var(--color-primary-text);
@@ -634,28 +635,43 @@ img {
 }
 
 /*=============== PLACE ===============*/
+
 #place #hospital-list,
 #place #police-station-list,
 #place #atm-mission-list,
 #place #petrol-pump-list {
-  list-style-type: none;
-  padding: 0;
+  max-width: 100%;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
 #place #hospital-list li,
 #place #police-station-list li,
 #place #atm-mission-list li,
 #place #petrol-pump-list li {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
   background-color: #f5f5f5;
   border-radius: 8px;
   padding: 16px;
   margin: 10px 10px 19px 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
+}
+
+@media (max-width: 600px) {
+  #place #hospital-list li,
+  #place #police-station-list li,
+  #place #atm-mission-list li,
+  #place #petrol-pump-list li {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -668,25 +684,60 @@ img {
   }
 }
 
-@media screen and (min-width: 576px) {
-  /* Adjust styles for screens wider than 576px */
-  #place #hospital-list li,
-  #place #police-station-list li,
-  #place #atm-mission-list li,
-  #place #petrol-pump-list li {
-    display: inline-block;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    width: calc(50% - 16px);
-  }
+/*=============== AID ===============*/
+.card-container {
+  max-width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@media screen and (min-width: 992px) {
-  /* Adjust styles for screens wider than 992px */
-  #place #hospital-list li,
-  #place #police-station-list li,
-  #place #atm-mission-list li,
-  #place #petrol-pump-list li {
-    width: calc(33.33% - 16px);
+.search-container {
+  margin-bottom: 10px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 15px;
+  font-size: var(--fluid-font3);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.filtered {
+  display: none;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background: var(--color-card);
+  margin: 10px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
+    margin-bottom: 10px;
   }
 }
