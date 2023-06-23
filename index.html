@@ -262,7 +262,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <script>
-      /*=============== map ===============*/
+      /*=============== MAP ===============*/
       // Initialize Leaflet map
       var map = L.map("map");
 
@@ -366,13 +366,15 @@
       }
 
       map.on("locationfound", onLocationFound);
-    </script>
 
-    <script>
       let shareData = {
         title: "MDN",
         text: "Learn web development on MDN!",
-        url: "https://developer.mozilla.org",
+        url:
+          "https://developer.mozilla.org?lat=" +
+          map.getCenter().lat.toFixed(6) +
+          "&lng=" +
+          map.getCenter().lng.toFixed(6),
       };
 
       const btn = document.querySelector(".share");
