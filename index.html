@@ -349,13 +349,16 @@
       // Initialize Leaflet map
       var map = L.map("map");
 
-      // Create a tile layer with CartoDB Positron data
+      // Create a tile layer with Mapbox Streets data
       L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
         {
           attribution:
-            '&copy; <a href="https://carto.com">CartoDB</a> contributors',
-          maxZoom: 17,
+            'Map data &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/streets-v11", // Mapbox Streets tileset
+          accessToken:
+            "pk.eyJ1IjoiYW51c3dhciIsImEiOiJjbGo5YjYwYzMxazF2M3BxeXFqempia3JkIn0.qs9af8JaGhmUYQ-DUx_HQQ", // Replace with your Mapbox access token
         }
       ).addTo(map);
 
