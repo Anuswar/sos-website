@@ -349,22 +349,22 @@
       // Initialize Leaflet map
       var map = L.map("map");
 
-      // Create a tile layer with OpenStreetMap data
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      // Create a tile layer with OpenTopoMap data
+      L.tileLayer("https://tile.opentopomap.org/{z}/{x}/{y}.png", {
         attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 20,
+          '&copy; <a href="https://www.opentopomap.org">OpenTopoMap</a> contributors',
+        maxZoom: 17,
       }).addTo(map);
 
       // Fetch user's location and display it on the map
-      map.locate({ setView: true, maxZoom: 18 }); // Adjusted the maxZoom value
+      map.locate({ setView: true, maxZoom: 16 }); // Adjusted the maxZoom value
 
       function onLocationFound(e) {
         var marker = L.marker(e.latlng).addTo(map);
         marker.bindPopup("You are here!").openPopup();
 
         // Zoom in further to the user's location
-        map.setView(e.latlng, 19);
+        map.setView(e.latlng, 16);
 
         // Define the amenities and their respective classes
         var amenities = [
@@ -378,7 +378,7 @@
         amenities.forEach(function (amenity) {
           var request = new XMLHttpRequest();
           var bounds = map.getBounds();
-          var radius = 2000; // Define the radius in meters for fetching amenities
+          var radius = 10000; // Define the radius in meters for fetching amenities
           var url =
             "https://www.overpass-api.de/api/interpreter?data=[out:json];node(around:" +
             radius +
