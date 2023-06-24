@@ -349,15 +349,15 @@
       // Initialize Leaflet map
       var map = L.map("map");
 
-      // Create a tile layer with Stamen Toner data
-      L.tileLayer("http://tile.stamen.com/toner/{z}/{x}/{y}.png", {
-        attribution:
-          'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
-          'under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. ' +
-          'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
-          'under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>',
-        maxZoom: 17,
-      }).addTo(map);
+      // Create a tile layer with CartoDB Positron data
+      L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+        {
+          attribution:
+            '&copy; <a href="https://carto.com">CartoDB</a> contributors',
+          maxZoom: 17,
+        }
+      ).addTo(map);
 
       // Fetch user's location and display it on the map
       map.locate({ setView: true, maxZoom: 16 }); // Adjusted the maxZoom value
