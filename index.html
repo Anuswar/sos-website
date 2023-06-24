@@ -52,7 +52,7 @@
 
           <!-- MENU -->
           <div class="nav__menu" id="nav-menu">
-            <div class="menuToggle">SOS</div>
+            <div id="sosButton" class="menuToggle">SOS</div>
             <ul class="nav__list">
               <li class="nav__item">
                 <a href="#" id="nav-map" class="nav__link active-link">
@@ -126,7 +126,7 @@
             <li class="tab filter-item active-filter" data-filter="all">All</li>
             <li class="tab filter-item" data-filter="hospital">Hospital</li>
             <li class="tab filter-item" data-filter="Police">Police station</li>
-            <li class="tab filter-item" data-filter="atm">AIM</li>
+            <li class="tab filter-item" data-filter="atm">ATM</li>
             <li class="tab filter-item" data-filter="petrol">Petrol pump</li>
           </ul>
         </div>
@@ -485,6 +485,33 @@
       }
 
       map.on("locationfound", onLocationFound);
+    </script>
+
+    <script>
+      // Get the SOS button element
+      var sosButton = document.getElementById("sosButton");
+
+      // Add a click event listener to the SOS button
+      sosButton.addEventListener("click", function () {
+        // Replace the phoneNumber variable with the desired phone number to call
+        var phoneNumber = "18431760308";
+
+        // Create a new Phone object
+        var phone = new Phone();
+
+        // Call the makeCall method with the phone number
+        phone.makeCall(phoneNumber);
+      });
+
+      // Phone class to handle making the call
+      function Phone() {
+        // Method to make a call
+        this.makeCall = function (phoneNumber) {
+          // Use WebRTC API or any other telephony API to initiate the call
+          // This implementation is a simplified example and may not work in all browsers
+          window.location.href = "tel:" + phoneNumber;
+        };
+      }
     </script>
 
     <script src="script.js"></script>
