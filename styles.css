@@ -642,10 +642,14 @@ img {
 #place #atm-mission-list,
 #place #petrol-pump-list {
   max-width: 100%;
+  height: auto;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #place #hospital-list li,
@@ -663,6 +667,7 @@ img {
   margin: 10px 10px 19px 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {
