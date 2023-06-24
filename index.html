@@ -385,8 +385,7 @@
         // Fetch nearby amenities
         amenities.forEach(function (amenity) {
           var request = new XMLHttpRequest();
-          var bounds = map.getBounds();
-          var radius = 10000; // Define the radius in meters for fetching amenities
+          var radius = 1000; // Define the radius in meters for fetching amenities
           var url =
             "https://www.overpass-api.de/api/interpreter?data=[out:json];node(around:" +
             radius +
